@@ -1,5 +1,10 @@
 vim.keymap.set("v", "<leader>y", '"+y')
 
+-- fatfingers and dyslexia
+vim.api.nvim_command("command! Q q")
+vim.api.nvim_command("command! W w")
+vim.api.nvim_command("command! Wq wq")
+
 -- move selected text
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
