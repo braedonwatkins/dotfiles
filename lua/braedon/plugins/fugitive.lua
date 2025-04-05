@@ -1,5 +1,5 @@
 vim.keymap.set("n", "<leader>gs", function()
-	vim.cmd("Git")
+	vim.cmd((vim.bo.filetype == "fugitive") and "bd" or "Git")
 end)
 
 return {
