@@ -1,11 +1,11 @@
-vim.keymap.set("n", "<leader>pv", function() 
-	local bufnr = vim.fn.bufname('%')
-	if vim.bo.filetype == 'oil' then
-		vim.cmd('bd')
-	else
-		vim.cmd("Oil")
-	end
-end)
-
-vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
+
+-- move selected text
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- center screen on big boy jumps
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
