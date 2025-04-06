@@ -5,7 +5,10 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/nvim-cmp",
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
 	},
+
 	config = function()
 		local lspconfig = require("lspconfig")
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -44,6 +47,41 @@ return {
 			-- 		},
 			-- 	})
 			-- end,
+		})
+
+		local cmp = require("cmp")
+
+		cmp.setup({
+			sources = {
+				{ name = "nvim_lsp" },
+				{ name = "buffer" },
+				{ name = "path" },
+			},
+			mapping = cmp.mapping.preset.insert({
+				["<S-Tab>"] = cmp.mapping.select_prev_item(),
+				["<Tab>"] = cmp.mapping.select_next_item(),
+				["<CR>"] = cmp.mapping.confirm({ select = true }),
+				["<C-Space>"] = cmp.mapping.complete(),
+			}),
+		})
+
+		-- Enable autocompletion
+		vim.o.completeopt = "menuone,noselect"
+
+		-- Diagnostic configuration
+		vim.diagnostic.config({
+			virtual_text = true,
+			signs = true,
+			update_in_insert = false,
+			underline = true,
+			severity_sort = true,
+			float = {
+				focusable = true,
+				style = "minimal",
+				border = "rounded",
+				header = "",
+				prefix = "",
+			},
 		})
 
 		-- lsp defined keymappings TODO: see if these can be better abstracted
