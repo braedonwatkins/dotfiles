@@ -10,3 +10,5 @@ gh/**
 
 # misc
 **/.DS_Store
+# the heaviest thing in the universe
+**/node_modules 
