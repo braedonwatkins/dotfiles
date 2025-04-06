@@ -1,0 +1,12 @@
+
+# for sure sensitive info
+stripe/**
+op/**
+
+# probably has sensitive data i just dont wanna check
+configstore/**
+wireshark/**
+gh/**
+
+# misc
+**/.DS_Store
