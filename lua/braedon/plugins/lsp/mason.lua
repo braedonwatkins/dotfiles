@@ -21,7 +21,6 @@ return {
 					"volar",
 					"prismals",
 					"rust_analyzer",
-					"tailwindcss",
 					"cssls",
 					"html",
 					"svelte",

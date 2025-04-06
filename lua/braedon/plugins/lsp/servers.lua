@@ -32,6 +32,12 @@ return {
 					},
 				})
 			end,
+			["volar"] = function()
+				lspconfig.volar.setup({
+					capabilities = capabilities,
+					filetypes = { "vue" },
+				})
+			end,
 			-- FIXME: for when i do c++/embedded
 			-- ["ccls"] = function()
 			-- 	lspconfig.ccls.setup({
@@ -84,12 +90,12 @@ return {
 			},
 		})
 
-		-- lsp defined keymappings TODO: see if these can be better abstracted
+		-- lsp defined keymappings  TODO: see if these can be better abstracted
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
 				local opts = { buffer = ev.buf }
-				vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts)
+				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
