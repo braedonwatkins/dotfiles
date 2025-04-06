@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "create-redwood-app": "^2.0.0"
+  }
+}

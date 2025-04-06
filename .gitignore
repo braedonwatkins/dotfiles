@@ -5,6 +5,7 @@ op/**
 
 # probably has sensitive data i just dont wanna check
 configstore/**
+raycast/**
 wireshark/**
 gh/**
 
@@ -12,3 +13,4 @@ gh/**
 **/.DS_Store
 # the heaviest thing in the universe
 **/node_modules 
+**/.env
