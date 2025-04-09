@@ -23,6 +23,8 @@ return {
 
         local conditions = {
             buffer_not_empty = function()
+                if vim.bo.filetype == "fugitive" then return true end
+                if vim.bo.filetype == "oil" then return true end
                 return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
             end,
             hide_in_width = function()
