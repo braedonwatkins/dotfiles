@@ -6,6 +6,10 @@ functionality I need.
 
 This will be a living document to iterate on as time goes on.
 
+## alias markdown prview & charm glow
+
+## alias undotree
+
 ## json formatter
 
 ## debugger
