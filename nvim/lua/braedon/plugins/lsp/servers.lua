@@ -20,6 +20,19 @@ return {
                 })
             end,
             -- special server configs
+            ["pyright"] = function()
+                lspconfig.lua_ls.setup({
+                    capabilities = capabilities,
+                    settings = {
+                        python = {
+                            analysis = {
+                                typeCheckingMode = "basic",
+                                useLibraryCodeForTypes = true
+                            }
+                        }
+                    }
+                })
+            end,
             ["lua_ls"] = function()
                 lspconfig.lua_ls.setup({
                     capabilities = capabilities,
