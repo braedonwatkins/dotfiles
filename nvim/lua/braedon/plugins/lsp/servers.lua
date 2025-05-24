@@ -13,59 +13,55 @@ return {
         local lspconfig = require("lspconfig")
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-        require("mason-lspconfig").setup_handlers({
-            function(server_name)
-                lspconfig[server_name].setup({
-                    capabilities = capabilities,
-                })
-            end,
-            -- special server configs
-            ["pyright"] = function()
-                lspconfig.lua_ls.setup({
-                    capabilities = capabilities,
-                    settings = {
-                        python = {
-                            analysis = {
-                                typeCheckingMode = "basic",
-                                useLibraryCodeForTypes = true
+        require("mason-lspconfig").setup({
+            handlers = {
+                function(server_name)
+                    lspconfig[server_name].setup({
+                        capabilities = capabilities,
+                    })
+                end,
+                -- special server configs
+                ["pyright"] = function()
+                    lspconfig.pyright.setup({
+                        capabilities = capabilities,
+                        settings = {
+                            python = {
+                                analysis = {
+                                    typeCheckingMode = "basic",
+                                    useLibraryCodeForTypes = true
+                                }
                             }
                         }
-                    }
-                })
-            end,
-            ["lua_ls"] = function()
-                lspconfig.lua_ls.setup({
-                    capabilities = capabilities,
-                    settings = {
-                        Lua = {
-                            diagnostics = {
-                                globals = { "vim" },
+                    })
+                end,
+                ["lua_ls"] = function()
+                    lspconfig.lua_ls.setup({
+                        capabilities = capabilities,
+                        settings = {
+                            Lua = {
+                                diagnostics = {
+                                    globals = { "vim" },
+                                },
                             },
                         },
-                    },
-                })
-            end,
-            ["volar"] = function()
-                lspconfig.volar.setup({
-                    capabilities = capabilities,
-                    filetypes = { "vue" },
-                })
-            end,
-            -- FIXME: for when i do c++/embedded
-            -- ["ccls"] = function()
-            -- 	lspconfig.ccls.setup({
-            -- 		capabilities = capabilities,
-            -- 		flags = {
-            -- 			debounce_text_changes = 150,
-            -- 		},
-            -- 		init_options = {
-            -- 			compilationDatabaseDirectory = "build",
-            -- 			cache = {
-            -- 				directory = "/tmp/ccls-cache",
-            -- 			},
-            -- 		},
-            -- 	})
-            -- end,
+                    })
+                end,
+                -- FIXME: for when i do c++/embedded
+                -- ["ccls"] = function()
+                -- 	lspconfig.ccls.setup({
+                -- 		capabilities = capabilities,
+                -- 		flags = {
+                -- 			debounce_text_changes = 150,
+                -- 		},
+                -- 		init_options = {
+                -- 			compilationDatabaseDirectory = "build",
+                -- 			cache = {
+                -- 				directory = "/tmp/ccls-cache",
+                -- 			},
+                -- 		},
+                -- 	})
+                -- end,
+            }
         })
 
         local cmp = require("cmp")
