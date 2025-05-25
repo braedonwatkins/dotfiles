@@ -21,6 +21,12 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "`", function()
+    return "`" .. vim.fn.nr2char(vim.fn.getchar()) .. "zz"
+end, { expr = true })
+vim.keymap.set("n", "'", function()
+    return "'" .. vim.fn.nr2char(vim.fn.getchar()) .. "zz"
+end, { expr = true })
 
 -- quickfix & location list navigation
 vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
