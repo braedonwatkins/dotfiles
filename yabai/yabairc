@@ -35,3 +35,8 @@ yabai -m rule --add app="^OBS$" manage=off
 
 # color borders based on active
 borders active_color=0xffe1e3e6 inactive_color=0xff494d64 width=5.0 &
+
+# ghostty
+yabai -m signal --add app='^Ghostty$' event=window_created action='yabai -m space --layout bsp'
+yabai -m signal --add app='^Ghostty$' event=window_destroyed action='yabai -m space --layout bsp'
+
