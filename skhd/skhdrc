@@ -1,5 +1,5 @@
 # open terminal
-cmd + shift - t : open -n -a "iterm"
+cmd + shift - i : open -n -a "iterm"
 
 # open browser 
 cmd + shift - b : open -n -a "Firefox" 
