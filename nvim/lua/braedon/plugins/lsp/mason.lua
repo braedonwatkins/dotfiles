@@ -14,6 +14,7 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = {
+                    "java_language_server",
                     "ts_ls",
                     "lua_ls",
                     "gopls",
