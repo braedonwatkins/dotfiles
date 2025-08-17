@@ -13,6 +13,9 @@ return {
         local lspconfig = require("lspconfig")
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+        -- weird thing specific to lean idgi
+        vim.env.PATH = "/Users/braedon/.elan/bin:" .. vim.env.PATH
+
         require("mason-lspconfig").setup({
             handlers = {
                 function(server_name)
@@ -21,6 +24,13 @@ return {
                     })
                 end,
                 -- special server configs
+                ["leanls"] = function()
+                    lspconfig.leanls.setup({
+                        cmd = { "lean", "--server" },
+                        filetypes = { "lean" },
+                        root_dir = lspconfig.util.root_pattern("leanpkg.toml", ".git"),
+                    })
+                end,
                 ["pyright"] = function()
                     lspconfig.pyright.setup({
                         capabilities = capabilities,
@@ -63,6 +73,7 @@ return {
                 -- end,
             }
         })
+
 
         local cmp = require("cmp")
 
