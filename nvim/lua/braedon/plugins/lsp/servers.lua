@@ -24,6 +24,17 @@ return {
                     })
                 end,
                 -- special server configs
+                ["clangd"] = function()
+                    lspconfig.clangd.setup({
+                        capabilities = capabilities,
+                        cmd = { "clangd", "--background-index", "--clang-tidy" },
+                        root_dir = lspconfig.util.root_pattern(
+                            "compile_commands.json",
+                            "compile_flags.txt",
+                            ".git"
+                        ),
+                    })
+                end,
                 ["leanls"] = function()
                     lspconfig.leanls.setup({
                         cmd = { "lean", "--server" },
