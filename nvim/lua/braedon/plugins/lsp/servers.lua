@@ -82,6 +82,7 @@ return {
                 { name = "nvim_lsp" },
                 { name = "buffer" },
                 { name = "path" },
+                { name = "vimtex" },
             },
             mapping = cmp.mapping.preset.insert({
                 ["<S-Tab>"] = cmp.mapping.select_prev_item(),

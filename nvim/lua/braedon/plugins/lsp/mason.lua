@@ -14,6 +14,7 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = {
+                    "tinymist",
                     "jdtls",
                     "ts_ls",
                     "lua_ls",
