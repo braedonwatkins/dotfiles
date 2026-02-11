@@ -1,5 +1,5 @@
 # open terminal
-cmd + shift - i : open -n -a "iterm"
+cmd + shift - a : open -n -a "alacritty"
 
 # open browser 
 cmd + shift - b : open -n -a "Firefox" 
@@ -128,3 +128,6 @@ ctrl + alt + cmd - r : yabai --restart-service
 
 ctrl + alt - n : yabai -m window --focus stack.next
 ctrl + alt - p : yabai -m window --focus stack.prev
+
+# alacritty toggle 
+cmd - u : /Users/braedon/bin/toggle_alacritty_opacity
